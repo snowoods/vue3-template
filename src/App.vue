@@ -1,56 +1,24 @@
 <template>
-  <h1 
-    :[attr]="'active'"
-    @[event]="add">
-    {{ msg }}
-  </h1>
-
-  <h1 @click="increase">
-    {{ count }}
-  </h1>
-  <div v-if="count > 4">
-    4보다 큽니다.
-  </div>
-  <div>
-    <ul>
-      <Fruit 
-        v-for="fruit in fruits" 
-        :key="fruit"
-        :name="fruit">
-        {{ fruit }}
-      </Fruit>
-    </ul>
-  </div>
+  <h1>{{ msg }}</h1>
   <HelloWorld />
 </template>
 
 <script>
 import HelloWorld from '~/components/HelloWorld'
-import Fruit from '~/components/Fruit'
+// import Fruit from '~/components/Fruit'
 
 export default {
   data() {
     return {
       msg: 'active',
-      attr: 'class',
-      event: 'click',
-
-      count: 0,
-      fruits: ['Apple', 'Banana', 'Cherry']
     }
   },
   components: {
     HelloWorld,
     // Fruit: Fruit // 이름이 같으면 생략 가능
-    Fruit
-  },  
+    // Fruit
+  },
   methods: {
-    add() {
-      this.msg += '!'
-    },
-    increase() {
-      this.count += 1
-    }
   },
 
   beforeCreate() {
@@ -73,15 +41,8 @@ export default {
 </script>
 
 <style lang="scss">
-  .active {
-    color: royalblue;
-    font-size: 100px;
-  }
   h1 {
     font-size: 50px;
     color: royalblue;
-  }
-  ul {
-    font-size: 40px;
   }
 </style>
